@@ -1,0 +1,22 @@
+dist: trusty
+sudo: false
+matrix:
+  include:
+  - language: objective-c
+    osx_image: xcode10.1
+    before_script:
+    - echo 'no need for ./.travisPre.sh'
+    script:
+    - cd SwiftURLMock
+    - xcodebuild clean build -project SwiftURLMock.xcodeproj -scheme SwiftURLMock CODE_SIGNING_REQUIRED=NO -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' -quiet
+    - xcodebuild test -project SwiftURLMock.xcodeproj -scheme SwiftURLMock -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1'  -enableCodeCoverage  YES -quiet
+    after_success:
+    - bash <(curl -s https://codecov.io/bash)
+    
+
+
+
+
+
+
+
