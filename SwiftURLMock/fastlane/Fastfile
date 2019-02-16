@@ -1,0 +1,4 @@
+setup_travis
+lane :tests do
+  run_tests(scheme: "SwiftURLMock")
+end

@@ -5,11 +5,12 @@ matrix:
   - language: objective-c
     osx_image: xcode10.1
     before_script:
-    - echo 'no need for ./.travisPre.sh'
+    - gem install fastlane --no-ri --no-rdoc --no-document
     script:
     - cd SwiftURLMock
-    - xcodebuild clean build -project SwiftURLMock.xcodeproj -scheme SwiftURLMock CODE_SIGNING_REQUIRED=NO -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' -quiet
-    - xcodebuild test -project SwiftURLMock.xcodeproj -scheme SwiftURLMock -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1'  -enableCodeCoverage  YES -quiet
+    - fastlane tests
+#    - xcodebuild clean build -project SwiftURLMock.xcodeproj -scheme SwiftURLMock CODE_SIGNING_REQUIRED=NO -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' -quiet
+#    - xcodebuild test -project SwiftURLMock.xcodeproj -scheme SwiftURLMock -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1'  -enableCodeCoverage  YES -quiet
     after_success:
     - bash <(curl -s https://codecov.io/bash)
     
