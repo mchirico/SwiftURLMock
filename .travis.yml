@@ -6,6 +6,7 @@ matrix:
     osx_image: xcode10.1
     before_script:
     - gem install fastlane --no-ri --no-rdoc --no-document
+    - gem install slather --no-ri --no-rdoc --no-document
     script:
     - cd SwiftURLMock
     - fastlane tests
