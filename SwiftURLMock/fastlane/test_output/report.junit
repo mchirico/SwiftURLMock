@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testsuites name='SwiftURLMockTests.xctest' tests='5' failures='0'>
-  <testsuite name='SwiftURLMockUITests.SwiftURLMockUITests' tests='1' failures='0'>
-    <testcase classname='SwiftURLMockUITests.SwiftURLMockUITests' name='testExample' time='5.745'/>
-  </testsuite>
+<testsuites name='SwiftURLMockUITests.xctest' tests='5' failures='0'>
   <testsuite name='SwiftURLMockTests.SwiftURLMockTests' tests='4' failures='0'>
-    <testcase classname='SwiftURLMockTests.SwiftURLMockTests' name='testMock' time='0.024'/>
-    <testcase classname='SwiftURLMockTests.SwiftURLMockTests' name='testNetworkManager' time='3.571'/>
-    <testcase classname='SwiftURLMockTests.SwiftURLMockTests' name='testPerformanceExample' time='0.352'/>
+    <testcase classname='SwiftURLMockTests.SwiftURLMockTests' name='testMock' time='0.016'/>
+    <testcase classname='SwiftURLMockTests.SwiftURLMockTests' name='testNetworkManager' time='4.006'/>
+    <testcase classname='SwiftURLMockTests.SwiftURLMockTests' name='testPerformanceExample' time='0.372'/>
     <testcase classname='SwiftURLMockTests.SwiftURLMockTests' name='testTimeout' time='0.110'/>
+  </testsuite>
+  <testsuite name='SwiftURLMockUITests.SwiftURLMockUITests' tests='1' failures='0'>
+    <testcase classname='SwiftURLMockUITests.SwiftURLMockUITests' name='testExample' time='4.425'/>
   </testsuite>
 </testsuites>

@@ -1,0 +1,9 @@
+coverage_service: cobertura_xml
+xcodeproj: SwiftURLMock/SwiftURLMock.xcodeproj
+scheme: SwiftURLMock
+configuration: tests
+source_directory: path/to/sources/to/include
+output_directory: SwiftURLMock
+ignore:
+  - ExamplePodCode/*
+  - SwiftURLMockTests/*
