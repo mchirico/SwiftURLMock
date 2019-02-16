@@ -6,7 +6,6 @@ matrix:
     osx_image: xcode10.1
     before_script:
     - gem install fastlane --no-ri --no-rdoc --no-document
-    - gem install slather
     script:
     - cd SwiftURLMock
     - fastlane tests
@@ -14,7 +13,7 @@ matrix:
 #    - xcodebuild test -project SwiftURLMock.xcodeproj -scheme SwiftURLMock -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1'  -enableCodeCoverage  YES -quiet
     after_success:
     - slather
-    - bash <(curl -s https://codecov.io/bash) -f SwiftURLMock/cobertura.xml -X coveragepy -X gcov -X xcode
+    - bash <(curl -s https://codecov.io/bash) 
     
 
 

@@ -1,9 +1,11 @@
-coverage_service: cobertura_xml
-xcodeproj: SwiftURLMock/SwiftURLMock.xcodeproj
+# .slather.yml
+
+ci_service: travis_ci
+coverage_service: coveralls
+xcodeproj: SwiftURLMock.xcodeproj
+workspace: SwiftURLMock.xcodeproj/project.xcworkspace
 scheme: SwiftURLMock
-configuration: tests
-source_directory: path/to/sources/to/include
-output_directory: SwiftURLMock
-ignore:
+source_directory: SwiftURLMock/
+ignore: 
   - ExamplePodCode/*
-  - SwiftURLMockTests/*
+  - ProjectTestsGroup/*
