@@ -1,4 +1,5 @@
 setup_travis
 lane :tests do
-  run_tests(scheme: "SwiftURLMock")
+  run_tests(scheme: "SwiftURLMock",
+            devices: ["iPhone X", "iPhone XS"])
 end
