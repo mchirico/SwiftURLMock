@@ -36,6 +36,48 @@ class NetworkSessionMock: NetworkSession {
   }
 }
 
+class ReadFile {
+  
+  var data: Data?
+  var stringData: String?
+  var error: Error?
+  
+  func GetData(contentsOf: URL) {
+    do {
+      data =  try Data(contentsOf: contentsOf)
+      if let validData = data {
+        stringData = String(data: validData, encoding: .utf8)
+      }
+    } catch {
+      self.error = error
+    }
+  }
+  
+  func Read(forResource: String, withExtension: String) {
+    if let url = Bundle.main.url(forResource: forResource, withExtension: withExtension) {
+      GetData(contentsOf: url)
+    }
+  }
+}
+
+class NetworkSessionFixtureMock: NetworkSession {
+  var data: Data?
+  var error: Error?
+  var readFile: ReadFile?
+  
+  init(forResource: String, withExtension: String) {
+    readFile = ReadFile()
+    readFile?.Read(forResource: forResource, withExtension: withExtension)
+    data = readFile?.data
+    error = readFile?.error
+  }
+  
+  func loadData(from url: URL, completionHandler: @escaping (Data?, Error?) -> Void) {
+    
+    completionHandler(data, error)
+  }
+}
+
 class NetworkManager {
   private let session: NetworkSession
   

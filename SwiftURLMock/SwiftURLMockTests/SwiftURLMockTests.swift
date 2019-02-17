@@ -12,6 +12,7 @@ import XCTest
 class SwiftURLMockTests: XCTestCase {
   
   var expectation: XCTestExpectation!
+  
   override func setUp() {
     expectation = XCTestExpectation(description: "networking")
   }
@@ -78,6 +79,63 @@ class SwiftURLMockTests: XCTestCase {
       self.expectation.fulfill()
     }
     wait(for: [expectation], timeout: 10)
+  }
+  
+  func testFixtureFile() {
+    if let url = Bundle.main.url(forResource: "sample", withExtension: "json") {
+      
+      do {
+        let data = try Data(contentsOf: url)
+        let stringData = String(data: data, encoding: .utf8)
+        
+        print("StringData: \(String(describing: stringData))")
+        
+      } catch {
+        print("Error:", error.localizedDescription)
+        XCTFail()
+      }
+    }
+  }
+  
+  func testReadFile() {
+    let readFile = ReadFile()
+    readFile.Read(forResource: "sample", withExtension: "json")
+    XCTAssertGreaterThan(readFile.data?.count ?? 0, 10)
+    XCTAssertGreaterThan(readFile.stringData?.count ?? 0, 10)
+  }
+  
+  func testNetworkSessionFixtureMock() {
+    let session = NetworkSessionFixtureMock(forResource: "sample",
+                                            withExtension: "json")
+
+    let network = NetworkManager(session: session)
+    
+    let readFile = ReadFile()
+    readFile.Read(forResource: "sample", withExtension: "json")
+    
+    let mockData = readFile.data!
+    
+    let url = URL(string: "blank")!
+    network.loadData(from: url) { result in
+      switch result {
+      case .success(let data):
+        XCTAssertEqual(data, mockData)
+      case .failure:
+        XCTFail()
+      }
+      self.expectation.fulfill()
+    }
+    wait(for: [expectation], timeout: 10)
+  }
+  
+  func testGetData() {
+    let readFile = ReadFile()
+    readFile.GetData(contentsOf: URL(string: "blank")!)
+    let expected = """
+The file “blank” couldn’t be opened.
+"""
+    let result = String(describing: readFile.error)
+    XCTAssert(result.contains(expected), "❌ Not throwing error in GetData")
   }
   
   func testPerformanceExample() {
