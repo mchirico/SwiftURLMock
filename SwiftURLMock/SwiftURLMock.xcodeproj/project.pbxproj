@@ -15,6 +15,7 @@
 		A5B29EEE22176270000D56B3 /* SwiftURLMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B29EED22176270000D56B3 /* SwiftURLMockTests.swift */; };
 		A5B29EF922176270000D56B3 /* SwiftURLMockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B29EF822176270000D56B3 /* SwiftURLMockUITests.swift */; };
 		A5B29F07221763CE000D56B3 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B29F06221763CE000D56B3 /* Network.swift */; };
+		A5B29F0C22197D6F000D56B3 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = A5B29F0B22197D6F000D56B3 /* sample.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		A5B29EF822176270000D56B3 /* SwiftURLMockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftURLMockUITests.swift; sourceTree = "<group>"; };
 		A5B29EFA22176270000D56B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5B29F06221763CE000D56B3 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		A5B29F0B22197D6F000D56B3 /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		A5B29ECC2217626D000D56B3 = {
 			isa = PBXGroup;
 			children = (
+				A5B29F0A22197D22000D56B3 /* Fixtures */,
 				A5B29ED72217626D000D56B3 /* SwiftURLMock */,
 				A5B29EEC22176270000D56B3 /* SwiftURLMockTests */,
 				A5B29EF722176270000D56B3 /* SwiftURLMockUITests */,
@@ -126,6 +129,14 @@
 				A5B29EFA22176270000D56B3 /* Info.plist */,
 			);
 			path = SwiftURLMockUITests;
+			sourceTree = "<group>";
+		};
+		A5B29F0A22197D22000D56B3 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				A5B29F0B22197D6F000D56B3 /* sample.json */,
+			);
+			path = Fixtures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5B29EE322176270000D56B3 /* LaunchScreen.storyboard in Resources */,
+				A5B29F0C22197D6F000D56B3 /* sample.json in Resources */,
 				A5B29EE022176270000D56B3 /* Assets.xcassets in Resources */,
 				A5B29EDE2217626E000D56B3 /* Main.storyboard in Resources */,
 			);
